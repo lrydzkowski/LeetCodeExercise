@@ -9,8 +9,8 @@ public static class Exercise2434
     {
         StringBuilder res = new();
         int n = s.Length;
-        char min = 'a';
-        char max = 'z';
+        const char min = 'a';
+        const char max = 'z';
         int last = 0;
         Stack<char> stack = new();
         for (int cur = min; cur <= max; cur++)
