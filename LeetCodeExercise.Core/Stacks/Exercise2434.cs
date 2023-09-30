@@ -1,8 +1,9 @@
 ﻿using System.Text;
 
-namespace LeetCodeExercise;
+namespace LeetCodeExercise.Core.Stacks;
 
-internal class Exercise2434
+// https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/
+public static class Exercise2434
 {
     public static string RobotWithString(string s)
     {
