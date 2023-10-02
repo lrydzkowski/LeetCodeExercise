@@ -31,7 +31,7 @@ public static class Exercise1944
                 monotonic.Remove(keyToRemove);
             }
 
-            if (heights[index - 1] <= height)
+            if (heights[index - 1] < height)
             {
                 results[index - 1] = 1;
             }
@@ -50,26 +50,35 @@ public static class Exercise1944
         return results;
     }
 
-    public static int[] RunFast(int[] heights)
+    public static int[] RunSlow2(int[] heights)
     {
         int[] results = new int[heights.Length];
-        Stack<int> mnemonic = new();
-        for (int index = 0; index < heights.Length; index++)
+        for (int index = 0; index < heights.Length - 1; index++)
         {
             int height = heights[index];
-            while (mnemonic.Count > 0 && heights[mnemonic.Peek()] < height)
+
+            int nextIndex = index + 1;
+            if (height < heights[nextIndex])
             {
-                int previousIndex = mnemonic.Pop();
-                results[previousIndex] = index - previousIndex;
+                results[index] = 1;
+
+                continue;
             }
 
-            mnemonic.Push(index);
-        }
+            Stack<int> stack = new();
+            stack.Push(nextIndex);
+            nextIndex++;
+            while (nextIndex < heights.Length && height > heights[stack.Peek()])
+            {
+                if (heights[nextIndex] > heights[stack.Peek()])
+                {
+                    stack.Push(nextIndex);
+                }
 
-        while (mnemonic.Count > 0)
-        {
-            int previousIndex = mnemonic.Pop();
-            results[previousIndex] = heights.Length - 1 - previousIndex;
+                nextIndex++;
+            }
+
+            results[index] = stack.Count;
         }
 
         return results;
