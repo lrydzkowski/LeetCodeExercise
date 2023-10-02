@@ -1,7 +1,7 @@
 ﻿namespace LeetCodeExercise.Core.Other;
 
 // <https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/>
-public class Exercise1475
+public static class Exercise1475
 {
     public static int[] Execute(int[] prices)
     {
