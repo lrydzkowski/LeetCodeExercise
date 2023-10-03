@@ -83,4 +83,32 @@ public static class Exercise1944
 
         return results;
     }
+
+    public static int[] RunSlow3(int[] heights)
+    {
+        int[] results = new int[heights.Length];
+        Stack<int> stack = new();
+        for (int index = heights.Length - 1; index >= 0; index--)
+        {
+            int height = heights[index];
+
+            int count = stack.Count(x => height > x);
+            if (stack.Any(x => height < x))
+            {
+                count++;
+            }
+
+            results[index] = count;
+
+
+            while (stack.Count > 0 && height > stack.Peek())
+            {
+                stack.Pop();
+            }
+
+            stack.Push(height);
+        }
+
+        return results;
+    }
 }
