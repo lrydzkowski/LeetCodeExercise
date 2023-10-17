@@ -1,4 +1,5 @@
-﻿using LeetCodeExercise.Core.Trees;
+﻿using LeetCodeExercise.Core.Common;
+using LeetCodeExercise.Core.Trees;
 
 namespace LeetCodeExercise.Tests.Trees;
 
