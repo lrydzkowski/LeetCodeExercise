@@ -1,6 +1,6 @@
 ﻿using LeetCodeExercise.Core.Graphs;
 
-namespace LeetCodeExercise.Tests.Trees;
+namespace LeetCodeExercise.Tests.Graphs;
 
 public class Exercise433Tests
 {
